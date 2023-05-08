@@ -1,10 +1,17 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Runtime.Serialization;
 using Unity.VisualScripting;
 using UnityEngine;
 
 public class RepositionMap : MonoBehaviour
 {
+    Collider2D coll;
+    private void Awake()
+    {
+        coll = GetComponent<Collider2D>();
+    }
+
     private void OnTriggerExit2D(Collider2D collision)
     {
         if (!collision.CompareTag("Area"))
@@ -35,7 +42,10 @@ public class RepositionMap : MonoBehaviour
                 }
                 break;
             case "Enemy":
-
+                if (coll.enabled)
+                {
+                    transform.Translate(playerDir * 36 + new Vector3(Random.Range(-2f,2f),Random.Range(-2f,2f),0f));
+                }
                 break;
         }
         
