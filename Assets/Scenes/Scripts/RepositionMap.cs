@@ -38,13 +38,13 @@ public class RepositionMap : MonoBehaviour
                 }
                 else if(diffX < diffY)
                 {
-                    transform.Translate(Vector3.up * dirY * 36);
+                    transform.Translate(Vector3.up * dirY * 34);
                 }
                 break;
             case "Enemy":
                 if (coll.enabled)
                 {
-                    transform.Translate(playerDir * 36 + new Vector3(Random.Range(-2f,2f),Random.Range(-2f,2f),0f));
+                    transform.Translate(playerDir * 34 + new Vector3(Random.Range(-2f,2f),Random.Range(-2f,2f),0f));
                 }
                 break;
         }
