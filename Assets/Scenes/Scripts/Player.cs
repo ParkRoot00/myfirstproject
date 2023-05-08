@@ -10,10 +10,12 @@ public class Player : MonoBehaviour
 
     Rigidbody2D rd;
     SpriteRenderer sprite;
+    Animator anim;
     private void Awake()
     {
         rd = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
+        anim = GetComponent<Animator>();
     }
     private void Start()
     {
@@ -33,6 +35,7 @@ public class Player : MonoBehaviour
     //LateUpdate = 프레임 종료 직전 실행됨
     private void LateUpdate()
     {
+        anim.SetFloat("Speed",inputVec.magnitude);
         if (inputVec.x != 0)
         {
             sprite.flipX = inputVec.x < 0;
