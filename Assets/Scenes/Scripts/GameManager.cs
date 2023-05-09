@@ -15,4 +15,13 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
+    void Update()
+    {
+        gameTime += Time.deltaTime;
+
+        if (gameTime > maxGameTime)
+        {
+            gameTime = maxGameTime;
+        }
+    }
 }
