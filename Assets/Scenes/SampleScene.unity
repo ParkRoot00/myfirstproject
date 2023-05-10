@@ -352,6 +352,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   prefabs:
   - {fileID: 8844418180718308448, guid: d479a5ee0c7fbf842920e5199b9bf3d6, type: 3}
+  - {fileID: 1626493301505542915, guid: b73f9cb820ea16146942572f7f03c503, type: 3}
 --- !u!4 &189259293
 Transform:
   m_ObjectHideFlags: 0
@@ -360,7 +361,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 189259291}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -4.6747684, y: -20.990526, z: -0.16882405}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5242,6 +5243,55 @@ MonoBehaviour:
   m_CameraActivatedEvent:
     m_PersistentCalls:
       m_Calls: []
+--- !u!1 &551762268
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 551762269}
+  - component: {fileID: 551762270}
+  m_Layer: 0
+  m_Name: Weapon0
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &551762269
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551762268}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1362290029}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &551762270
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 551762268}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cecb6313f08724b8331c2280b99dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 0
+  prefabId: 1
+  damage: 11
+  count: 2
+  speed: 0
 --- !u!1 &559886683
 GameObject:
   m_ObjectHideFlags: 0
@@ -10183,6 +10233,15 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   spawnPoint: []
+  spawnData:
+  - spriteType: 0
+    health: 10
+    spawnTime: 0.7
+    speed: 1.5
+  - spriteType: 1
+    health: 15
+    spawnTime: 0.2
+    speed: 2.4
 --- !u!1 &1268562808
 GameObject:
   m_ObjectHideFlags: 0
@@ -10306,6 +10365,7 @@ GameObject:
   - component: {fileID: 1362290027}
   - component: {fileID: 1362290026}
   - component: {fileID: 1362290025}
+  - component: {fileID: 1362290031}
   - component: {fileID: 1362290030}
   m_Layer: 0
   m_Name: Player
@@ -10431,8 +10491,9 @@ Transform:
   m_Children:
   - {fileID: 1530350526}
   - {fileID: 1226042916}
+  - {fileID: 551762269}
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!95 &1362290030
 Animator:
@@ -10455,6 +10516,23 @@ Animator:
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorStateOnDisable: 0
   m_WriteDefaultValuesOnDisable: 0
+--- !u!114 &1362290031
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1362290024}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4c5137ba6fde41f45bac3e1b02f303dd, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  scanRange: 0
+  targetLayer:
+    serializedVersion: 2
+    m_Bits: 0
+  nearestTarget: {fileID: 0}
 --- !u!1 &1459043291
 GameObject:
   m_ObjectHideFlags: 0
@@ -10466,7 +10544,7 @@ GameObject:
   - component: {fileID: 1459043293}
   - component: {fileID: 1459043292}
   m_Layer: 0
-  m_Name: Grid
+  m_Name: Ground
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -10501,7 +10579,7 @@ Transform:
   - {fileID: 669647384}
   - {fileID: 294346139}
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1463755986
 GameObject:
