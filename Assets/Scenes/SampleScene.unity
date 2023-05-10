@@ -353,6 +353,7 @@ MonoBehaviour:
   prefabs:
   - {fileID: 8844418180718308448, guid: d479a5ee0c7fbf842920e5199b9bf3d6, type: 3}
   - {fileID: 1626493301505542915, guid: b73f9cb820ea16146942572f7f03c503, type: 3}
+  - {fileID: 7577809998817164691, guid: 0d55b1529f00fd244aac7bc14a1d2d48, type: 3}
 --- !u!4 &189259293
 Transform:
   m_ObjectHideFlags: 0
@@ -10388,6 +10389,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   inputVec: {x: 0, y: 0}
   speed: 0
+  scanner: {fileID: 0}
 --- !u!50 &1362290026
 Rigidbody2D:
   serializedVersion: 4
@@ -10492,6 +10494,7 @@ Transform:
   - {fileID: 1530350526}
   - {fileID: 1226042916}
   - {fileID: 551762269}
+  - {fileID: 1493016726}
   m_Father: {fileID: 0}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -10528,10 +10531,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4c5137ba6fde41f45bac3e1b02f303dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scanRange: 0
+  scanRange: 7
   targetLayer:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 64
   nearestTarget: {fileID: 0}
 --- !u!1 &1459043291
 GameObject:
@@ -10612,6 +10615,55 @@ Transform:
   m_Father: {fileID: 1226042916}
   m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1493016725
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1493016726}
+  - component: {fileID: 1493016727}
+  m_Layer: 0
+  m_Name: Weapon1
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1493016726
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493016725}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 1362290029}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &1493016727
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1493016725}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26cecb6313f08724b8331c2280b99dd7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  id: 1
+  prefabId: 2
+  damage: 5
+  count: 0
+  speed: 0
 --- !u!1 &1530350525
 GameObject:
   m_ObjectHideFlags: 0

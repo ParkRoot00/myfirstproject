@@ -15,16 +15,18 @@ public class Enemy : MonoBehaviour
     Rigidbody2D rd;
     Animator anim;
     SpriteRenderer sprite;
+    WaitForFixedUpdate wait;
 
     private void Awake()
     {
         rd = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         anim = GetComponent<Animator>();
+        wait = new WaitForFixedUpdate();
     }
     private void FixedUpdate()
     {
-        if (!isLive)
+        if (!isLive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             return;
         Vector2 dirVec = target.position - rd.position;
         Vector2 nextVec = dirVec.normalized * speed * Time.fixedDeltaTime;
@@ -59,16 +61,31 @@ public class Enemy : MonoBehaviour
             return;
         }
         health -= collision.GetComponent<Bullet>().damage;
+        KnockBack();
 
         if (health > 0)
         {
             //Live
+            anim.SetTrigger("Hit");
         }
         else
         {
             //Die
             Dead();
         }
+    }
+
+    IEnumerable KnockBack()
+    {
+        /*
+        yield return null; // 1프레임 쉼
+        yield return new WaitForSeconds(2f); //2초 쉼
+        */
+        yield return wait; //다음 하나의 물리 프레임 딜레이
+        Vector3 playerPos = GameManager.instance.player.transform.position;
+        Vector3 dirVec = transform.position - playerPos;
+        rd.AddForce(dirVec.normalized * 10f, ForceMode2D.Impulse);
+
     }
     void Dead()
     {
