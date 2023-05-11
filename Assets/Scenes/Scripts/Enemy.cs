@@ -28,6 +28,9 @@ public class Enemy : MonoBehaviour
     }
     private void FixedUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         if (!isLive || anim.GetCurrentAnimatorStateInfo(0).IsName("Hit"))
             return;
         Vector2 dirVec = target.position - rd.position;
@@ -37,6 +40,9 @@ public class Enemy : MonoBehaviour
     }
     private void LateUpdate()
     {
+        if (!GameManager.instance.isLive)
+            return;
+
         if (!isLive)
             return;
         sprite.flipX = target.position.x < rd.position.x;
@@ -97,8 +103,8 @@ public class Enemy : MonoBehaviour
         rd.AddForce(dirVec.normalized * 10f, ForceMode2D.Impulse);
 
     }
-    void Dead()
+    public void Dead()
     {
-        gameObject.SetActive(false);
+        anim.SetBool("Dead",true);
     }
 }
