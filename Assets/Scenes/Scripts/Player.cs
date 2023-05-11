@@ -24,6 +24,8 @@ public class Player : MonoBehaviour
     }
     void Update()
     {
+        if (GameManager.instance.isLive)
+            return;
         inputVec.x = Input.GetAxisRaw("Horizontal");
         inputVec.y = Input.GetAxisRaw("Vertical");
     }
@@ -42,4 +44,13 @@ public class Player : MonoBehaviour
             sprite.flipX = inputVec.x < 0;
         }
     }
+    /*
+    private void OnCollisionStay2D(Collision2D collision)
+    {
+        if (!GameManager.instance.isLive)
+        {
+
+        }
+    }
+    */
 }

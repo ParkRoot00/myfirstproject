@@ -6,9 +6,12 @@ public class GameManager : MonoBehaviour
 {
     public static GameManager instance;
     [Header("#Game Control")]
+    public bool isLive;
     public float gameTime;
     public float maxGameTime = 2 * 10f; //분단위 계산하기
     [Header("#Player")]
+    public int health;
+    public int maxHealth = 100;
     public int level;
     public int kill;
     public int exp;
@@ -20,8 +23,15 @@ public class GameManager : MonoBehaviour
     {
         instance = this;
     }
+
+    private void Start()
+    {
+        health = maxHealth;
+    }
     void Update()
     {
+        if (!isLive)
+            return;
         gameTime += Time.deltaTime;
 
         if (gameTime > maxGameTime)
@@ -38,5 +48,15 @@ public class GameManager : MonoBehaviour
             level++;
             exp = 0;
         }
+    }
+    public void Stop()
+    {
+        isLive = false;
+        Time.timeScale = 0;
+    }
+    public void ReStart()
+    {
+        isLive = true;
+        Time.timeScale = 1;
     }
 }
